@@ -9,23 +9,23 @@ public class ThongTinDiem {
         this.ma = ma;
         this.ten = ten;
         this.diemTong = diemTong;
-    }
-
-    public void setDiemUutien() {
-        String a = this.ma.substring(0 , 2);
+        
+        String a = this.ma.substring(0 , 3);
         if(a.equals("KV1")) this.diemUutien = 0.5;
         if(a.equals("KV2")) this.diemUutien = 1.0;
         if(a.equals("KV3")) this.diemUutien = 2.5;
-    }
-
-    public void setTrangThai() {
+        
         if(this.diemTong + this.diemUutien >= 24) this.TrangThai = "TRUNG TUYEN";
         else this.TrangThai = "TRUOT";
     }
 
     @Override
     public String toString() {
-        return  ma + " " + ten + " "  + " " + String.format("%.01", args)diemUutien + " " + diemTong + TrangThai  ;
+        String diemUT = String.format("%.1f", diemUutien);
+        String diemT = String.format("%.1f", diemTong);
+        if(diemUT.length() == 3 && diemUT.charAt(2) == '0') diemUT = diemUT.substring(0 , 1) ;
+        if(diemT.charAt(diemT.length() - 1) == '0') diemT = diemT.substring(0 , diemT.length() - 2);
+        return  ma + " " + ten + " "  + " " + diemUT + " " + diemT + " " + TrangThai;
     }
     
 }
