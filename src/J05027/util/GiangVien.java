@@ -1,8 +1,8 @@
 
-package J05026.util;
+package J05027.util;
 
 public class GiangVien {
-    private String ma , hoTen , boMon ;
+     private String ma , hoTen , boMon ;
 
     public GiangVien(int i , String hoTen, String boMon) {
         this.ma = "GV" + String.format("%02d", i);
@@ -15,8 +15,8 @@ public class GiangVien {
         this.boMon = ans;
     }
 
-    public String getBoMon() {
-        return boMon;
+    public String getTen() {
+       return this.hoTen.toUpperCase();
     }
 
     @Override
