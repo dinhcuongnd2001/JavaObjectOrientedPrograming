@@ -13,8 +13,9 @@ public class Cost implements Comparable<Cost>{
         this.count = count;
         long imTotal = this.imPrice * this.count;
         this.transferCost = Math.round((double)imTotal * 5 / 100);
-        this.total = this.transferCost + imTotal;
-        this.exPrice = Math.round((Math.round((double)this.total * 102 / 100) / this.count)/10) * 10;
+        this.total = Math.round(this.transferCost + (double)imTotal);
+        double val1 = (this.total * 1.0 * 102.0 / 100.0) / (double)(this.count);
+        this.exPrice = (long)Math.ceil(val1 / 100) * 100;
     }
 
     @Override
