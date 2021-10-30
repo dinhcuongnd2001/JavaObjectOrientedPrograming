@@ -15,7 +15,7 @@ public class ListPassing implements Comparable<ListPassing>{
         this.physics = physics;
         this.chemistry = chemistry;
         this.bonus = store.get(id.substring(0,3));
-        this.total = Math.round((this.math*2 + this.physics + this.chemistry + this.total) * 10.0) / 10.0;
+        this.total = Math.round((this.math*2 + this.physics + this.chemistry + this.bonus) * 10.0) / 10.0;
     }
 
     public Double getTotal() {
@@ -42,13 +42,13 @@ public class ListPassing implements Comparable<ListPassing>{
         else stBonus = String.format("%.1f", this.bonus);
         if(this.total*10 % 10 == 0) stTotal = String.format("%.0f", this.total);
         else stTotal = String.format("%.1f", this.total);
-        return id + " " + name + " " + stBonus + " " + stTotal +  " "  + result  ;
+        return id + " " + name + " " + stBonus + " " + stTotal +  " "  + result;
     }
       
     @Override
     public int compareTo(ListPassing o) {
         if(this.total < o.total) return 1;
-        else if(this.total == o.total) return this.id.compareTo(o.id);
+        else if(this.total*10 == o.total*10) return this.id.compareTo(o.id);
         return -1;
     }
 }

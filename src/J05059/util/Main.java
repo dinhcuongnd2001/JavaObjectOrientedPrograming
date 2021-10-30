@@ -16,6 +16,7 @@ public class Main {
         int m = Integer.parseInt(in.nextLine());
         Collections.sort(storeListPassings);
         ListPassing.standard = storeListPassings.get(m-1).getTotal();
+        System.out.println(ListPassing.standard);
         for(ListPassing x : storeListPassings){
             x.setResult();
             System.out.println(x);
