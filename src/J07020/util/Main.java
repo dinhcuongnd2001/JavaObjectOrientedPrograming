@@ -6,7 +6,7 @@ import java.io.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        Scanner in = new Scanner(new File("C:\\Users\\Admin\\Desktop\\DATA.txt"));
+        Scanner in = new Scanner(new File("KH.in"));
         ArrayList<Order> listOrders = new ArrayList<>();
         ArrayList<Items> listItemses = new ArrayList<>();
         ArrayList<Client> listClients = new ArrayList<>();
@@ -15,11 +15,13 @@ public class Main {
             Client a = new Client(i, in.nextLine(), in.nextLine(), in.nextLine(), in.nextLine());
             listClients.add(a);
         }
+        in = new Scanner(new File("MH.in"));
         int m = Integer.parseInt(in.nextLine());
         for(int i = 1; i <= m ; i++){
             Items a = new Items(i, in.nextLine(), in.nextLine(), Long.parseLong(in.nextLine()), Long.parseLong(in.nextLine()));
             listItemses.add(a);
         }
+        in = new Scanner(new File("HD.in")); 
         int k = Integer.parseInt(in.nextLine());
         for(int i = 1 ; i <= k ; i++){
             Order a = new Order(i, in.nextLine());
@@ -38,6 +40,7 @@ public class Main {
                     break;
                 }
             }
+            x.setTotal();
         }
         for(Order x : listOrders){
             System.out.println(x);

@@ -9,10 +9,12 @@ public class Order {
 
     public Order(int i , String s) {
         this.id = "HD" + String.format("%03d", i);
-        String a[] = s.split(" ", 2);
-        this.c1.setId(a[0]);
-        this.i1.setId(a[1]);
+        String a[] = s.split(" ", 3);
+        this.c1 = new Client(0,"","","","");
+        this.i1 = new Items(0,"","",0,0);
         this.count = Long.valueOf(a[2]);
+        c1.setId(a[0]);
+        i1.setId(a[1]);
     }
 
     public Client getC1() {
@@ -23,8 +25,6 @@ public class Order {
         return i1;
     }
     
-    
-    
     public void setC1(Client c1) {
         this.c1 = c1;
     }
@@ -34,12 +34,12 @@ public class Order {
     }
     
     public void setTotal(){
-        this.total = (this.i1.getSell() - this.i1.getCost()) * this.count;
+        this.total = this.i1.getSell() * this.count;
     }
 
     @Override
     public String toString() {
-        return id + " " + c1.getName()+ " " + c1.getAdd() + " " + i1.getName() + " " + i1.getUnit() + i1.getCost()+ " " +i1.getSell() + count + " " + total;  
+        return id + " " + c1.getName()+ " " + c1.getAdd() + " " + i1.getName() + " " + i1.getUnit() + " " + i1.getCost()+ " " +i1.getSell()+ " " + count + " " + total;  
     }  
 }
 

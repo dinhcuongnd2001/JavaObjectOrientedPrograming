@@ -6,7 +6,7 @@ public class Items {
     private long cost, sell;
 
     public Items(int i, String name, String unit, long cost, long sell) {
-        this.id = "HD" + String.format("%03d", i);
+        this.id = "MH" + String.format("%03d", i);
         this.name = name;
         this.unit = unit;
         this.cost = cost;
