@@ -11,6 +11,7 @@ public class Polygon {
         for(int i = 0 ; i < p.length - 1 ; i++){
             Area =  Area + (p[i].getX()*p[i+1].getY() - p[i+1].getX()*p[i].getY());
         }
+        Area += (p[p.length-1].getX()*p[0].getY() - p[0].getX()*p[p.length-1].getY());
         double res = Math.round((Math.abs(Area)*1.0 / 2) * 1000.0) / 1000.0;
         return String.format("%.3f", res);
     }
