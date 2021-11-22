@@ -1,26 +1,23 @@
 
 package BasicJava.util;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class ThuGonDaySo {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
-        List<Integer> a = new ArrayList<>();
-        for(int i = 0 ; i < n ; i++){
-            int x = in.nextInt();
-            a.add(x);
+        ArrayDeque<Integer> ans = new ArrayDeque<>();
+        int a[] = new int[n+5];
+        a[0] = in.nextInt();
+        ans.push(a[0]);
+        for(int i = 1; i < n ; i++){
+            a[i] = in.nextInt();
+            if(ans.size() > 0 && (ans.getFirst()+a[i]) % 2 == 0){
+                ans.pop();
+            }
+            else ans.push(a[i]);
         }
-        int i = 0;
-        boolean check = true ;
-        while(check){
-//            for(int i = 0 ; i < n -1 ; i++){
-//               
-//            }
-        }
-        System.out.println(a.size());
-    }
+        System.out.println(ans.size());
+   }
 }
