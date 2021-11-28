@@ -5,7 +5,8 @@ import java.io.*;
 import java.text.*;
 public class Main {
     public static void main(String[] args) throws IOException, ParseException {
-        Scanner in = new Scanner(new File("C:\\Users\\Admin\\Desktop\\DATA.txt"));
+        //Scanner in = new Scanner(new File("C:\\Users\\Admin\\Desktop\\DATA.txt"));
+        Scanner in = new Scanner(new File("MUAHANG.in"));
         ArrayList<Products> stProductses = new ArrayList<>();
         ArrayList<Clients> stClientses = new ArrayList<>();
         int n = Integer.parseInt(in.nextLine());

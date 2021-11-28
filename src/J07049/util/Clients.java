@@ -10,6 +10,7 @@ public class Clients implements Comparable<Clients>{
     private int count, totalPay;
     private LocalDate dayBuy, datDate;
     private Products x;
+    private Date comp;
     
     SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
     SimpleDateFormat format2 = new SimpleDateFormat("dd/MM/yyyy");
@@ -22,10 +23,11 @@ public class Clients implements Comparable<Clients>{
         this.dayBuy = LocalDate.parse(format1.format(format2.parse(dayBuy)));
     }
 
-    public void setX(Products x) {
+    public void setX(Products x) throws ParseException {
         this.x = x;
         this.totalPay = this.count* this.x.getCost();
         this.datDate = this.dayBuy.plusMonths(this.x.getDate());
+        this.comp = format1.parse(this.datDate.toString());
     }
 
     public String getIdProduct() {
@@ -34,20 +36,19 @@ public class Clients implements Comparable<Clients>{
 
     @Override
     public String toString() {
+        String y = "";
         try {
-            String x = format2.format(format1.parse(this.datDate.toString()));
+            y = format2.format(format1.parse(this.datDate.toString()));
         } catch (ParseException ex) {
             Logger.getLogger(Clients.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return  idClient + " " + name + " " + address + " " + idProduct + " " + totalPay + " " + x;
+        return  idClient + " " + name + " " + address + " " + idProduct + " " + totalPay + " " + y;
     }
 
     @Override
     public int compareTo(Clients o) {
-        if(this.datDate.toString().compareTo(o.datDate.toString()) < 0 ) return 1;
-        else if(this.datDate.toString().equals(o.datDate.toString())){
-            return this.idClient.compareTo(o.idClient);
-        }
+        if (this.comp.getTime() > o.comp.getTime()) return 1;
+        else if(this.comp.getTime()==o.comp.getTime()) return this.idClient.compareTo(o.idClient);
         return -1;
     } 
 }
