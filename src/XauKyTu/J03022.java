@@ -9,5 +9,8 @@ public class J03022 {
         while(in.hasNext()){
             ans = ans + in.next() + " "; 
         }
+        ans.toLowerCase().trim().replaceAll("\\s+"," ");
+        String.
+        
     }
 }
