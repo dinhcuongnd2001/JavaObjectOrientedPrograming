@@ -5,8 +5,8 @@ import java.io.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-       Scanner in = new Scanner(System.in);
-//        Scanner in = new Scanner(new File("C:\\Users\\Admin\\Desktop\\DATA.txt"));
+//       Scanner in = new Scanner(System.in);
+        Scanner in = new Scanner(new File("C:\\Users\\Admin\\Desktop\\DATA.txt"));
         ArrayList<Employee>store = new ArrayList<>();
         int n = Integer.parseInt(in.nextLine());
         for(int i = 0 ; i < n; i++){

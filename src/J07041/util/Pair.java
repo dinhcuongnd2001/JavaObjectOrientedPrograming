@@ -3,24 +3,25 @@ package J07041.util;
 import java.io.Serializable;
 
 public class Pair implements Serializable,Comparable<Pair>{
-    private int first, second;
+    private long first, second;
 
-    public Pair(int first, int second) {
+    public Pair(long first, long second) {
         this.first = first;
         this.second = second;
     }
 
-    public int getFirst() {
+    public long getFirst() {
         return first;
     }
 
-    public int getSecond() {
+    public long getSecond() {
         return second;
     }
         
     @Override
     public int compareTo(Pair o) {
-       return this.first - o.first;
+       if((this.first - o.first) > 0 ) return 1;
+       return -1;
     }
 
     @Override

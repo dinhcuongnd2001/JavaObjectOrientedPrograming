@@ -10,7 +10,13 @@ public class J03022 {
             ans = ans + in.next() + " "; 
         }
         ans.toLowerCase().trim().replaceAll("\\s+"," ");
-        String.
-        
+        String s = "";
+        for(int i = 0 ; i < ans.length()-1; i++){
+            if(s.charAt(i) == '.' || s.charAt(i) == '?' || s.charAt(i) == '!'   ){
+                if(s.charAt(i+1) == ' '){
+                    
+                }
+            }
+        }
     }
 }
